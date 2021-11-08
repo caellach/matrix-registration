@@ -252,6 +252,31 @@ def register():
         )
 
 
+@api.route("/registration_complete", methods=["GET"])
+def register():
+    """
+    main user account registration endpoint
+    to register an account you need to send a
+    application/x-www-form-urlencoded request with
+      - username
+      - password
+      - confirm
+      - token
+    as described in the RegistrationForm
+    """
+    server_name = config.config.server_name
+    lang = request.args.get("lang") or request.accept_languages.best
+    replacements = {"server_name": server_name}
+    translations = get_translations(lang, replacements)
+    return render_template(
+        "registration_complete.html",
+        server_name=server_name,
+        client_redirect=config.config.client_redirect,
+        base_url=config.config.base_url,
+        translations=translations,
+    )
+
+
 @api.route("/health")
 def health():
     return make_response("OK", 200)
