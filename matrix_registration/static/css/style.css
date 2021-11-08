@@ -230,6 +230,13 @@ label {
   height: 40em;
 }
 
+.complete {
+  height: initial;
+  margin-top: initial;
+  overflow: visible;
+  transform: translateY(-50%);
+}
+
 .modal {
   margin-left: -12.5em;
   margin-top: -7.5em;
@@ -265,6 +272,10 @@ label {
     min-width: 20em;
   }
 
+  .complete {
+    margin-top: 40vh;
+  }
+
   .modal {
     margin-top: -15vh;
     margin-left: -35vw;
@@ -293,6 +304,10 @@ label {
 
   .widget {
     margin-top: -40vh;
+  }
+
+  .complete {
+    margin-top: 40vh;
   }
 
   .modal {
