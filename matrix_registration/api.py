@@ -259,12 +259,18 @@ def registration_complete():
     should give next instructions.
     """
     server_name = config.config.server_name
+    pw_length = config.config.password["min_length"]
+    uname_regex = config.config.username["validation_regex"]
+    uname_regex_inv = config.config.username["invalidation_regex"]
     lang = request.args.get("lang") or request.accept_languages.best
-    replacements = {"server_name": server_name}
+    replacements = {"server_name": server_name, "pw_length": pw_length}
     translations = get_translations(lang, replacements)
     return render_template(
         "registration_complete.html",
         server_name=server_name,
+        pw_length=pw_length,
+        uname_regex=uname_regex,
+        uname_regex_inv=uname_regex_inv,
         client_redirect=config.config.client_redirect,
         base_url=config.config.base_url,
         translations=translations,
