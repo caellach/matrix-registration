@@ -253,16 +253,10 @@ def register():
 
 
 @api.route("/registration_complete", methods=["GET"])
-def register():
+def registration_complete():
     """
-    main user account registration endpoint
-    to register an account you need to send a
-    application/x-www-form-urlencoded request with
-      - username
-      - password
-      - confirm
-      - token
-    as described in the RegistrationForm
+    page to show when the user registration is done.
+    should give next instructions.
     """
     server_name = config.config.server_name
     lang = request.args.get("lang") or request.accept_languages.best
