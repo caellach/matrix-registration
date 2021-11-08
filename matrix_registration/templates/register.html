@@ -250,6 +250,7 @@
         } else {
           document.getElementById("welcome").innerHTML = "{{ translations.welcome }} "  + response['user_id']
           document.getElementById("success").classList.remove("hidden")
+          window.location.href = "{{ client_redirect }}"
         }
 
       })
